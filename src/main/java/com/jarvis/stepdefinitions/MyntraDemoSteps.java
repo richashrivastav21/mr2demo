@@ -1,6 +1,7 @@
 package com.jarvis.stepdefinitions;
 
 import com.jarvis.keywords.Keyword;
+import com.jarvis.pages.CartPage;
 import com.jarvis.pages.HomePage;
 import com.jarvis.pages.LoginPage;
 import com.jarvis.pages.ProductDetailPage;
@@ -93,4 +94,62 @@ public class MyntraDemoSteps {
 		String brandFilterName = resultPage.getFirstBrandFilterName().split("\\(")[0];
 		resultPage.verifyProducttitleContains(brandFilterName);
 	}
+	
+	@Given("User is at women kurta listing page")
+	public void clickOnWomenKurtasSuitsSection() {
+		HomePage homePage = new HomePage();
+		homePage.clickOnWomenKurtasSuitsSection();
+	}
+
+	@When("User clicks on clear filter")
+	public void clickOnClearFilter() {
+		SearchResultPage resultPage = new SearchResultPage();
+		resultPage.clickOnClearAllFilter();
+	}
+	
+	@Then("User should get redirected to women kurta section")
+	public void validateKurtaSectionUrl() {
+		Keyword.validatePageUrl("https://www.myntra.com/women-kurtas-kurtis-suits");
+	}
+	
+	@Given("User is at bed runner listing page")
+	public void clickOnBedRunnersSection() {
+		HomePage homePage = new HomePage();
+		homePage.clickOnBedRunnersSection();
+	}
+	
+	@When("User clicks on myntra logo")
+	public void clickOnMyntraLogo() {
+		HomePage homePage = new HomePage();
+		homePage.clickOnMyntraLogo();
+	}
+	
+	@Then("User should get redirected to home page")
+	public void validateHomePageUrl() {
+		Keyword.validatePageUrl("https://www.myntra.com/");
+	}
+	
+	@When("User clicks on wishlist icon")
+	public void clickOnWishlist() {
+		HomePage homepage = new HomePage();
+		homepage.clickOnWishlist();
+	}
+	
+	@Then("Wishlist page should open")
+	public void validateWishlistPageUrl() {
+		Keyword.validatePageUrl("https://www.myntra.com/wishlist");
+	}
+	
+	@When("User clicks on cart icon")
+	public void clickOnBag() {
+		HomePage homepage = new HomePage();
+		homepage.clickOnBag();
+	}
+	
+	@Then("Cart page should open")
+	public void validateCartPage() {
+		CartPage cartpage = new CartPage();
+		cartpage.validateCartPage();
+	}
+
 }
