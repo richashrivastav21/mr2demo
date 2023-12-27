@@ -1,10 +1,10 @@
-package jarvis;
+package mr2demo;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = "src/test/resources/Features/Demo.feature", 
-glue = "com.jarvis.stepdefinitions",
+glue = "com.mr2demo.stepdefinitions",
 tags = "@MyntraDemo",
 dryRun = false,
 plugin = {

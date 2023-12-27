@@ -1,4 +1,4 @@
-package com.jarvis.waits;
+package com.mr2demo.waits;
 
 import java.time.Duration;
 
@@ -8,8 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
-import com.jarvis.exceptions.InvalidSelectorException;
-import com.jarvis.keywords.Keyword;
+import com.mr2demo.exceptions.InvalidSelectorException;
+import com.mr2demo.keywords.Keyword;
 
 public class WaitFor {
 
