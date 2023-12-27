@@ -3,8 +3,7 @@
 <suite name="Suite">
   <test thread-count="1" name="Test">
     <classes>
-     <!-- <class name="jarvis.TestRunner"/> -->
-     <class name="jarvis.TestRunner"></class>
+     <class name="mr2demo.TestRunner"></class>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
