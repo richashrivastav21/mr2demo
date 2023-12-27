@@ -1,4 +1,4 @@
-package com.jarvis.keywords;
+package com.mr2demo.keywords;
 
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,10 +17,12 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 
-import com.jarvis.errors.InvalidBrowserError;
-import com.jarvis.exceptions.InvalidSelectorException;
+import com.mr2demo.errors.InvalidBrowserError;
+import com.mr2demo.exceptions.InvalidSelectorException;
 
 public class Keyword {
+	
+	private static final Logger LOG = Logger.getLogger(Keyword.class);
 
 	private static RemoteWebDriver driver = null;
 
@@ -42,22 +45,22 @@ public class Keyword {
 	public void openBrowser(String browserName) {
 		if (browserName.equalsIgnoreCase("chrome")) {
 			driver = new ChromeDriver();
-			System.out.println("Opening Chrome browser");
+			LOG.info("Opening Chrome browser");
 		} else if (browserName.equalsIgnoreCase("Firefox")) {
 			driver = new FirefoxDriver();
-			System.out.println("Opening Firefox browser");
+			LOG.info("Opening Firefox browser");
 		} else if (browserName.equalsIgnoreCase("Safari")) {
 			driver = new SafariDriver();
-			System.out.println("Opening Safari browser");
+			LOG.info("Opening Safari browser");
 		} else {
-			System.out.println("Invalid browser name");
+			LOG.info("Invalid browser name");
 			throw new InvalidBrowserError(browserName);
 		}
 	}
 
 	public void openUrl(String url) {
 		driver.get(url);
-		System.out.println("Launching url");
+		LOG.info("Launching url");
 	}
 
 	public void closeBrowser() {

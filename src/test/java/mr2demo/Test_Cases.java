@@ -1,15 +1,15 @@
-package jarvis;
+package mr2demo;
 
 
 import org.testng.annotations.Test;
 import org.openqa.selenium.Keys;
-import com.jarvis.base.TestBase;
-import com.jarvis.keywords.Keyword;
-import com.jarvis.pages.CartPage;
-import com.jarvis.pages.HomePage;
-import com.jarvis.pages.LoginPage;
-import com.jarvis.pages.ProductDetailPage;
-import com.jarvis.pages.SearchResultPage;
+import com.mr2demo.base.TestBase;
+import com.mr2demo.keywords.Keyword;
+import com.mr2demo.pages.CartPage;
+import com.mr2demo.pages.HomePage;
+import com.mr2demo.pages.LoginPage;
+import com.mr2demo.pages.ProductDetailPage;
+import com.mr2demo.pages.SearchResultPage;
 
 public class Test_Cases extends TestBase{
 	
@@ -64,7 +64,6 @@ public class Test_Cases extends TestBase{
 		homepage.clickOnLipstickSection();
 		SearchResultPage resultPage = new SearchResultPage();
 		String brandFilterName = resultPage.getFirstBrandFilterName().split("\\(")[0];
-		System.out.print("Name "+brandFilterName);
 		resultPage.clickOnFirstBrandFilter();
 		resultPage.verifyProducttitleContains(brandFilterName);
 	}

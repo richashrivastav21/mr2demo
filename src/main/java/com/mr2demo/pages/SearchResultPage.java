@@ -1,7 +1,8 @@
-package com.jarvis.pages;
+package com.mr2demo.pages;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,10 +10,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
-import com.jarvis.keywords.Keyword;
-import com.jarvis.waits.WaitFor;
+import com.mr2demo.keywords.Keyword;
+import com.mr2demo.waits.WaitFor;
 
 public class SearchResultPage {
+	
+	private static final Logger LOG = Logger.getLogger(SearchResultPage.class);
 
 	@FindBy(css = "h3.product-brand")
 	public List<WebElement> productTitles;
@@ -42,6 +45,7 @@ public class SearchResultPage {
 	}
 
 	public List<String> getProducTitles() {
+		LOG.info("Validating product title at search result page");
 		WaitFor waitFor = new WaitFor();
 		waitFor.numberOfElementsToBeMoreThan(productTitle, 1);
 		Keyword.pageRefresh();
@@ -51,6 +55,7 @@ public class SearchResultPage {
 	}
 
 	public List<String> getProducNames() {
+		LOG.info("Validating product name at search result page");
 		WaitFor waitFor = new WaitFor();
 		waitFor.numberOfElementsToBeMoreThan(productName, 1);
 		Keyword keyword = new Keyword();
@@ -59,26 +64,29 @@ public class SearchResultPage {
 	}
 
 	public void clickOnFirstProduct() {
+		LOG.info("Clicking on first product present at search result page");
 		WaitFor waitFor = new WaitFor();
 		waitFor.numberOfElementsToBeMoreThan(productTitle, 1);
 		firstProduct.click();
 	}
 
 	public void verifyProducttitleContains(String expectedText) {
+		LOG.info("Validating all product title at search result page");
 		List<String> productTitles = getProducTitles();
 		SoftAssert softly = new SoftAssert();
 		for (String productTitle : productTitles) {
-			System.out.println("Checking :" + productTitle);
+			LOG.info("Product title :" + productTitle);
 			softly.assertTrue(productTitle.contains(expectedText));
 		}
 		softly.assertAll();
 	}
 
 	public void verifyProductNameContains(String expectedText) {
+		LOG.info("Validating all product name at search result page");
 		List<String> productNames = getProducNames();
 		SoftAssert softly = new SoftAssert();
 		for (String productName : productNames) {
-			System.out.println("Checking :" + productName);
+			LOG.info("Product name :" + productName);
 			Assert.assertTrue(productName.contains(expectedText));
 		}
 		softly.assertAll();
@@ -87,17 +95,19 @@ public class SearchResultPage {
 	public String getFirstBrandFilterName() {
 		WaitFor waitFor = new WaitFor();
 		waitFor.elementToBeClickable(byBrandFilter);
-		System.out.print("BrandFilter " + brandFilter.getText());
+		LOG.info("First brand filter name " + brandFilter.getText());
 		return brandFilter.getText();
 	}
 
 	public void clickOnFirstBrandFilter() {
+		LOG.info("Going to click on first brand filter");
 		WaitFor waitFor = new WaitFor();
 		waitFor.elementToBeClickable(byBrandFilter);
 		brandFilter.click();
 	}
 
 	public void clickOnClearAllFilter() {
+		LOG.info("Going to click on clear all filter");
 		WaitFor waitFor = new WaitFor();
 		waitFor.elementToBeClickable(byClearAllFilter);
 		clearAllFilter.click();

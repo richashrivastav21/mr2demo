@@ -1,14 +1,18 @@
-package com.jarvis.stepdefinitions;
+package com.mr2demo.stepdefinitions;
 
 
-import com.jarvis.base.Config;
-import com.jarvis.keywords.Keyword;
+import org.apache.log4j.Logger;
+
+import com.mr2demo.base.Config;
+import com.mr2demo.keywords.Keyword;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Hooks {
+	
+	private static final Logger LOG = Logger.getLogger(Hooks.class);
 	
 	Keyword keyword = new Keyword();
 
@@ -18,11 +22,13 @@ public class Hooks {
 		keyword.openBrowser(Config.getBrowsername());
 		keyword.maximizeBrowser();
 		keyword.openUrl(Config.getAppUrl());
+		LOG.info("Browser setup done");
 	}
 
 	@After
 	public void tearDown() {
 		keyword.quitAllWindows();
+		LOG.info("All windows closed");
 	}
 
 }

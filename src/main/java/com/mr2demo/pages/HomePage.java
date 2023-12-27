@@ -1,14 +1,18 @@
-package com.jarvis.pages;
+package com.mr2demo.pages;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.jarvis.keywords.Keyword;
-import com.jarvis.waits.WaitFor;
+import com.mr2demo.keywords.Keyword;
+import com.mr2demo.waits.WaitFor;
 
 public class HomePage {
+	
+	private static final Logger LOG = Logger.getLogger(HomePage.class);
+	
 	// WebElements
 	@FindBy(css = "div.desktop-query>input[placeholder*='Search for']")
 	public WebElement searchComponent;
@@ -67,12 +71,14 @@ public class HomePage {
 
 	// Actions
 	public void enterProductToSearch(CharSequence... productName) {
+		LOG.info("Searching product with name "+productName);
 		searchComponent.sendKeys(productName);
 	}
 	
 	public void clickOnLogin() {
 		Keyword keyword = new Keyword();
 		keyword.performMouseHover(profile);
+		LOG.info("Going to click on login button under profile");
 		loginButton.click();
 	}
 	
@@ -81,6 +87,7 @@ public class HomePage {
 		keyword.performMouseHover(menSection);
 		WaitFor waitFor = new WaitFor();
 		waitFor.elementToBeClickable(menTshirt);
+		LOG.info("Going to click on mens tshirt section under mens category");
 		menTShirts.click();
 	}
 	
@@ -89,6 +96,7 @@ public class HomePage {
 		keyword.performMouseHover(womenSection);
 		WaitFor waitFor = new WaitFor();
 		waitFor.elementToBeClickable(womenKurtaSuit);
+		LOG.info("Going to click on women kurta suit section under womens category");
 		womentKurtasSuits.click();
 	}
 	
@@ -97,6 +105,7 @@ public class HomePage {
 		keyword.performMouseHover(homeLivingSection);
 		WaitFor waitFor = new WaitFor();
 		waitFor.elementToBeClickable(bedRunner);
+		LOG.info("Going to click on bed runner section under home living category");
 		bedRunners.click();
 	}
 	
@@ -105,22 +114,27 @@ public class HomePage {
 		keyword.performMouseHover(beautySection);
 		WaitFor waitFor = new WaitFor();
 		waitFor.elementToBeClickable(lipStick);
+		LOG.info("Going to click on lipstick section under beauty category");
 		lipstick.click();
 	}
 	
 	public void clickOnMyntraLogo() {
+		LOG.info("Going to click on myntra logo");
 		myntraLogo.click();
 	}
 	
 	public void clickOnWishlist() {
+		LOG.info("Going to click on wishlist logo");
 		wishlistIcon.click();
 	}
 	
 	public void clickOnBag() {
+		LOG.info("Going to click on cart logo");
 		cartIcon.click();
 	}
 	
 	public void clickOnSearchMagnifier() {
+		LOG.info("Going to click on search magnifier");
 		searchMagnifier.click();
 	}
 	
