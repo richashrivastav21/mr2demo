@@ -1,6 +1,7 @@
 package com.mr2demo.stepdefinitions;
 
 import com.mr2demo.keywords.Keyword;
+import com.mr2demo.pages.CartPage;
 import com.mr2demo.pages.HomePage;
 import com.mr2demo.pages.LoginPage;
 import com.mr2demo.pages.ProductDetailPage;
@@ -25,7 +26,7 @@ public class MyntraDemoSteps {
 	}
 
 	@Then("All results populated must contains word Levis in it")
-	public void assertResults() {
+	public void assertResultsPage() {
 		SearchResultPage resultPage = new SearchResultPage();
 		resultPage.verifyProducttitleContains("Levis");
 	}
@@ -93,4 +94,159 @@ public class MyntraDemoSteps {
 		String brandFilterName = resultPage.getFirstBrandFilterName().split("\\(")[0];
 		resultPage.verifyProducttitleContains(brandFilterName);
 	}
+	
+	/*
+	 * @Given("Enter Levis in search component") public void
+	 * enter_levis_in_search_component() { HomePage homepage = new HomePage();
+	 * homepage.enterProductToSearch("Levis");
+	 * 
+	 * }
+	 */
+
+	@When("User click on search magnifire")
+	public void clickOnSearchMagnifire() {
+		HomePage homepage = new HomePage();
+		homepage.clickOnSearchMagnifier();
+
+	}
+
+	@Then("All results populates must contain word levis in it")
+	public void assertResults() {
+		SearchResultPage resultPage = new SearchResultPage();
+		resultPage.verifyProducttitleContains("Levis");
+	}
+
+//	2 Sd
+	@Given("The Enter Libas in search component")
+	public void enter_libas_in_search_component() {
+		HomePage homepage = new HomePage();
+		homepage.enterProductToSearch("Libas");
+	}
+
+	@When("User click on search magnifire for serach")
+	public void user_click_on_search_magnifire_for_serach() {
+		HomePage homepage = new HomePage();
+		homepage.clickOnSearchMagnifier();
+
+	}
+
+	@Then("All results should be display")
+	public void all_results_should_be_display() {
+		SearchResultPage resultPage = new SearchResultPage();
+		resultPage.verifyProducttitleContains("Libas");
+
+	}
+
+//3 Sd
+	@Given("The Enter Kurtis in Search Component")
+	public void the_enter_kurtis_in_search_component() {
+		HomePage homepage = new HomePage();
+		homepage.enterProductToSearch("Kurtis");
+	}
+
+	@When("User Click on search magnifire product")
+	public void user_click_on_search_magnifire_product() {
+		HomePage homepage = new HomePage();
+		homepage.clickOnSearchMagnifier();
+
+	}
+
+	@When("Click on Fabric menu")
+	public void click_on_fabric_menu() {
+		SearchResultPage resultPage = new SearchResultPage();
+		resultPage.clickOnFabricMenu();
+
+	}
+
+	@When("Click on Acrylik CheckBox")
+	public void click_on_acrylik_check_box() {
+		SearchResultPage resultPage = new SearchResultPage();
+		resultPage.clickOnAcrylickFabric();
+
+	}
+
+	@Then("result should be display the Acrylik")
+	public void result_should_be_display_the_acrylik() {
+		SearchResultPage resultPage = new SearchResultPage();
+		resultPage.verifyProducttitleContains("Kurtis");
+
+	}
+
+//4
+	@Given("The Enter Libas kurti in search component")
+	public void the_enter_libas_kurti_in_search_component() {
+		HomePage homepage = new HomePage();
+		homepage.enterProductToSearch("Libas");
+	}
+
+	@When("User click on search magnifire for serach Libas kurti Set")
+	public void user_click_on_search_magnifire_for_serach_libas_kurti_set() {
+		HomePage homepage = new HomePage();
+		homepage.clickOnSearchMagnifier();
+
+	}
+
+	@Then ("Click on Women Black Pure Cotton Ethnic Motifs Set")
+	public void click_on_Women_Black_Pure_Cotten_Ethnic_Motifs_Set() {
+		SearchResultPage resultPage = new SearchResultPage();
+		resultPage.searchItem();
+	}
+	
+	@Given("User is at women kurta listing page")
+	public void clickOnWomenKurtasSuitsSection() {
+		HomePage homePage = new HomePage();
+		homePage.clickOnWomenKurtasSuitsSection();
+	}
+
+	@When("User clicks on clear filter")
+	public void clickOnClearFilter() {
+		SearchResultPage resultPage = new SearchResultPage();
+		resultPage.clickOnClearAllFilter();
+	}
+
+	@Then("User should get redirected to women kurta section")
+	public void validateKurtaSectionUrl() {
+		Keyword.validatePageUrl("https://www.myntra.com/women-kurtas-kurtis-suits");
+	}
+
+	@Given("User is at bed runner listing page")
+	public void clickOnBedRunnersSection() {
+		HomePage homePage = new HomePage();
+		homePage.clickOnBedRunnersSection();
+	}
+
+	@When("User clicks on myntra logo")
+	public void clickOnMyntraLogo() {
+		HomePage homePage = new HomePage();
+		homePage.clickOnMyntraLogo();
+	}
+
+	@Then("User should get redirected to home page")
+	public void validateHomePageUrl() {
+		Keyword.validatePageUrl("https://www.myntra.com/");
+	}
+
+	@When("User clicks on wishlist icon")
+	public void clickOnWishlist() {
+		HomePage homepage = new HomePage();
+		homepage.clickOnWishlist();
+	}
+
+	@Then("Wishlist page should open")
+	public void validateWishlistPageUrl() {
+		Keyword.validatePageUrl("https://www.myntra.com/wishlist");
+	}
+
+	@When("User clicks on cart icon")
+	public void clickOnBag() {
+		HomePage homepage = new HomePage();
+		homepage.clickOnBag();
+	}
+
+	@Then("Cart page should open")
+	public void validateCartPage() {
+		CartPage cartpage = new CartPage();
+		cartpage.validateCartPage();
+	}
+
 }
