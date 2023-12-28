@@ -56,3 +56,28 @@ Scenario: Verify cart page
 	When User clicks on cart icon
 	Then Cart page should open			
 	
+@MyntraDemo	
+Scenario: verify when user searches fo Levis  then all results  should contain products from brand Levis
+Given Enter Levis in search component
+When User click on search magnifire
+Then All results populates must contain word levis in it
+
+@MyntraDemo
+Scenario: verify the Libas kurti then all results should contain product brand Libas
+Given The Enter Libas in search component
+When User click on search magnifire for serach
+Then All results should be display 
+
+@MyntraDemo
+Scenario: Verify the Acrylic Fabric kurtis then result should display
+Given The Enter Kurtis in Search Component
+When  User Click on search magnifire product
+When  Click on Fabric menu
+When  Click on Acrylik CheckBox
+Then  result should be display the Acrylik 
+
+@MyntraDemo
+Scenario: verify the Libas kurti then result show the Libas kurti set
+Given The Enter Libas kurti in search component
+When User click on search magnifire for serach Libas kurti Set
+Then Click on Women Black Pure Cotton Ethnic Motifs Set

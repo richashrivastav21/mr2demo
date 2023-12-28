@@ -14,7 +14,7 @@ import com.mr2demo.keywords.Keyword;
 import com.mr2demo.waits.WaitFor;
 
 public class SearchResultPage {
-	
+
 	private static final Logger LOG = Logger.getLogger(SearchResultPage.class);
 
 	@FindBy(css = "h3.product-brand")
@@ -32,12 +32,21 @@ public class SearchResultPage {
 	@FindBy(css = "span.header-clearAllBtn")
 	public WebElement clearAllFilter;
 
+	@FindBy(css = "ul.results-base>li:nth-child(2) h4.product-product")
+	public WebElement productTitlesw;
+
+	@FindBy(css = "ul.atsa-filters>li:nth-of-type(3)>label>h4.atsa-title")
+	public WebElement fabricmenu;
+
+	@FindBy(css = "ul.atsa-values>li:first-of-type>label.common-customCheckbox>div.common-checkboxIndicator")
+	public WebElement Acrylikfabric;
+
 	private By productTitle = By.cssSelector("h3.product-brand");
 
 	private By productName = By.cssSelector("h4.product-product");
 
 	private By byBrandFilter = By.cssSelector("label[class='vertical-filters-label common-customCheckbox']");
-	
+
 	private By byClearAllFilter = By.cssSelector("span.header-clearAllBtn");
 
 	public SearchResultPage() {
@@ -113,4 +122,18 @@ public class SearchResultPage {
 		clearAllFilter.click();
 	}
 
+	public void searchItem() {
+		productTitlesw.click();
+
+	}
+
+	public void clickOnFabricMenu() {
+		fabricmenu.click();
+
+	}
+
+	public void clickOnAcrylickFabric() {
+		Acrylikfabric.click();
+
+	}
 }
