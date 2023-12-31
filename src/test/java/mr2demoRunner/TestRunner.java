@@ -1,9 +1,9 @@
-package mr2demo;
+package mr2demoRunner;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(features = "src/test/resources/Features/Demo.feature", 
+@CucumberOptions(features = "src/test/resources/Features", 
 glue = "com.mr2demo.stepdefinitions",
 tags = "@MyntraDemo",
 dryRun = false,

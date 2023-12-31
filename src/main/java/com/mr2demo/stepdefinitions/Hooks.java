@@ -8,7 +8,6 @@ import com.mr2demo.keywords.Keyword;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Hooks {
 	
@@ -18,7 +17,6 @@ public class Hooks {
 
 	@Before
 	public void setUp() {
-		WebDriverManager.chromedriver().arch64().setup();
 		keyword.openBrowser(Config.getBrowsername());
 		keyword.maximizeBrowser();
 		keyword.openUrl(Config.getAppUrl());
