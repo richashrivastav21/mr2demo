@@ -3,10 +3,7 @@ package com.mr2demo.base;
 import org.apache.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-
 import com.mr2demo.keywords.Keyword;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
 	
@@ -16,7 +13,6 @@ public class TestBase {
 
 	@BeforeMethod
 	public void setUp() {
-		WebDriverManager.chromedriver().arch64().setup();
 		keyword.openBrowser(Config.getBrowsername());
 		keyword.maximizeBrowser();
 		keyword.openUrl(Config.getAppUrl());

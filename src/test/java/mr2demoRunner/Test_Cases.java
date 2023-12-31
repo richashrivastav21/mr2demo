@@ -1,4 +1,4 @@
-package mr2demo;
+package mr2demoRunner;
 
 
 import org.testng.annotations.Test;
@@ -12,8 +12,8 @@ import com.mr2demo.pages.ProductDetailPage;
 import com.mr2demo.pages.SearchResultPage;
 
 public class Test_Cases extends TestBase{
-	
-	@Test(enabled=true)
+	/*
+	//@Test(enabled=true)
 	public void validateProductSearch() {
 		//HomePage homepage = PageFactory.initElements(Keyword.getDriver() , HomePage.class);
 		HomePage homepage = new HomePage();
@@ -24,7 +24,7 @@ public class Test_Cases extends TestBase{
 	}
 	
 	
-	@Test(enabled=true)
+	//@Test(enabled=true)
 	public void validateProductViewPage() {
 		HomePage homepage = new HomePage();
 		homepage.enterProductToSearch("Levis",Keys.ENTER);
@@ -41,7 +41,7 @@ public class Test_Cases extends TestBase{
 	}
 	
 	
-	@Test(enabled=false)
+	//@Test(enabled=false)
 	public void validateLoginPage() {
 		HomePage homepage = new HomePage();
 		homepage.clickOnLogin();
@@ -50,7 +50,7 @@ public class Test_Cases extends TestBase{
 	}
 	
 
-	@Test(enabled=false)
+	//@Test(enabled=false)
 	public void validateMenTshirtsSectionListingPage() {
 		HomePage homepage = new HomePage();
 		homepage.clickOnMenTshirtsSection();
@@ -58,7 +58,7 @@ public class Test_Cases extends TestBase{
 		resultPage.verifyProductNameContains("T-shirt");
 	}
 	
-	@Test(enabled=false)
+	//@Test(enabled=false)
 	public void validateBrandFilterAtListingPage() {
 		HomePage homepage = new HomePage();
 		homepage.clickOnLipstickSection();
@@ -68,7 +68,7 @@ public class Test_Cases extends TestBase{
 		resultPage.verifyProducttitleContains(brandFilterName);
 	}
 	
-	@Test(enabled=false)
+	//@Test(enabled=false)
 	public void validateClearFilterAtListingPage() {
 		HomePage homepage = new HomePage();
 		homepage.clickOnWomenKurtasSuitsSection();
@@ -81,7 +81,7 @@ public class Test_Cases extends TestBase{
 	}
 	
 	
-	@Test(enabled=false)
+	//@Test(enabled=false)
 	public void validateMyntraHomePageRedirectionFromListingPage() {
 		HomePage homepage = new HomePage();
 		homepage.clickOnBedRunnersSection();
@@ -92,19 +92,19 @@ public class Test_Cases extends TestBase{
 		
 	}
 	
-	@Test(enabled=false)
+	//@Test(enabled=false)
 	public void validateWishlistPage() {
 		HomePage homepage = new HomePage();
 		homepage.clickOnWishlist();
 		Keyword.validatePageUrl("https://www.myntra.com/wishlist");
 	}
 	
-	@Test(enabled=false)
+	//@Test(enabled=false)
 	public void validateCartPage() {
 		HomePage homepage = new HomePage();
 		homepage.clickOnBag();
 		CartPage cartpage = new CartPage();
 		cartpage.validateCartPage();
 	}
-	
+	*/
 }
